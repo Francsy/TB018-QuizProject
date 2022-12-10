@@ -1,0 +1,211 @@
+:root{
+    --backgroundIndex: rgb(131,243,247);
+    --anchorIndex: rgb(77,208,255);
+    --indexShadow: rgb(47,82,220);
+    --backgroundQuiz: rgb(248,254,228);
+    --titles: rgb(165,28,30);
+    --optionA: rgb(12,215,160);
+    --optionB: rgb(26,154,170);
+    --optionC: rgb(240,70,110);
+    --optionD: rgb(255,196,61);
+}
+
+* {
+    font-family: fantasy;
+}
+
+#index {
+    background-color: var(--backgroundIndex);
+    text-align: center;
+    margin-top: 100px;
+}
+
+#indexAnchor {
+    margin: 50px 30px;
+    background-color: var(--anchorIndex);
+    border: 4px solid var(--indexShadow);
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block; 
+}
+
+/* Cambios para el quiz */
+
+#quizbody {
+    background: var(--backgroundQuiz);
+}
+form {
+    text-align: center;
+}
+
+.quizfieldset {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    margin-bottom: 30px;
+    padding: 0px;
+    border-color: transparent;
+}
+
+legend {
+    color: var(--titles);
+    height: 20vh;
+    font-size: 1.5em;
+    font-family: fantasy;
+    padding: 0px 25px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+label {
+    font-size: 1.5em;
+    margin: 0px;
+    padding: 30px;
+    height: 20vh;
+    width: 100%;
+    color: var(--backgroundQuiz);
+    min-width: 100px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.optionA {
+    background: var(--optionA);
+}
+
+.optionB{
+    background: var(--optionB);
+}
+
+.optionC {
+    background: var(--optionC);
+}
+
+.optionD {
+    background: var(--optionD);
+}
+
+.quizfieldset label:hover {
+    background: black;
+}
+
+.quizfieldset input[type=radio]:checked + label{
+    background: var(--backgroundQuiz);
+    color: var(--titles);
+    border: 3px solid var(--titles);
+    text-transform: uppercase;
+}
+
+button[type*="submit"] {
+    color: var(--titles);
+    background-color: var(--backgroundQuiz);
+    border: 2px solid var(--titles);
+    padding: 20px 30px;
+    margin: 30px 20px 50px 20px;
+    border-radius: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+button[type*="submit"]:hover {
+    background-color: var(--titles);
+    color: var(--backgroundQuiz);
+} 
+
+input {
+    width: 300px;
+}
+
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+
+    #quizform {
+        margin: auto 30px;
+    }
+
+    .quizfieldset {
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+    }
+    
+    legend {
+        color: var(--titles);
+        height: 35vh;
+        font-size: 1.8em;
+        padding: 0px 15vw;
+    }
+
+    label {
+        font-size: 1.8em;
+        margin: 20px 0px;
+        padding: 20px 30px;
+        height: 90px;
+        width: 35%;
+    }
+
+    button[type*="submit"] {
+        padding: 25px 35px;
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+
+    #quizform {
+        margin: auto 15%;
+    }
+    .quizfieldset {
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        
+    }
+    
+    legend {
+        color: var(--titles);
+        height: 35vh;
+        font-size: 2.4em;
+        padding: 0px 10vw;
+    }
+
+    label {
+        font-size: 2em;
+        margin: 20px 20px;
+        padding: 30px 30px;
+        height: 90px;
+        width: 30%;
+    }
+
+    button[type*="submit"] {
+        padding: 30px 40px;
+        font-size: 1.8em;
+    }
+}
