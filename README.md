@@ -1,15 +1,23 @@
 # TBProject02-Quiz
 
-En este proyecto pretendo crear un Quiz con 10 preguntas sobre la cultura geek.
+Bienvenido al quiz sobre la cultura geek.
 
-Se trata de un proyecto con una página inicial de presentación del quiz y una página con todas las preguntas.
+Tan sólo 10 preguntas te separan del éxito.
 
-La maquetación ha sido desarrollada con un enfoque mobile first.
+Cada pregunta tiene cuatro posibilidades. Elige bien.
 
-¡Qué lo disfrutes!
+Cuando llegues al final, podrás pulsar el botón «Comprobar respuestas» para ver tu resultado.
+
+Además, las preguntas marcadas se señalarán en verde o en rojo, por lo que podrás revisar en que has fallado.
+
+¡Suerte!
+
+
+[Pincha aquí para jugar](https://francsy.github.io/TBProject02-Quiz/)
+
 
 
 
 Fran V. Hdez.
 
-[ - Francsy - ]
+[ - Francsy - ](https://github.com/Francsy)
