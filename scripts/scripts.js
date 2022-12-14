@@ -1,4 +1,4 @@
-//En primer lugar he creado una función que crea toda la estructura del quiz al pasarle un array de objetos (preguntas) y el id en el que quieres que se anide
+//Función que crea toda la estructura del html:
 function createQuiz(arr, id) {
 
     form = document.createElement("form");
@@ -35,6 +35,16 @@ function createQuiz(arr, id) {
 
     }
 
+    let divMensajeFinal = document.createElement("div");
+    form.appendChild(divMensajeFinal);
+    let mensajeFinal = document.createElement("p");
+    mensajeFinal.id = "message";
+    divMensajeFinal.appendChild(mensajeFinal);
+    let imagenEspecial = document.createElement("img");
+    imagenEspecial.setAttribute("id","imagenFinal")
+    divMensajeFinal.appendChild(imagenEspecial);
+
+
     let formButton = document.createElement("button");
     formButton.setAttribute("type", "submit");
     formButton.setAttribute("value", "comprobar");
@@ -43,7 +53,7 @@ function createQuiz(arr, id) {
 
 }
 
-//En segundo lugar declaramos el array de objetos con todas las preguntas que queramos, con diferentes valores a su estructura de valores 
+//Array de objetos que sirve como base de datos para construir los elementos y la validación de la página: 
 const preguntas = [
     {
         name: "videogame",
@@ -214,12 +224,12 @@ const preguntas = [
     }
 ]
 
-//En tercer lugar llamamos a la función createQuiz con el id de la sección main del HTML
+//Llamando a la función createQuiz con el id de la sección en la cual será anidado:
 
 createQuiz(preguntas, "quizmain");
 
 
-//En cuarto lugar vamos a hacer toda la validación del formulario:
+//Validación del formulario:
 
 document.querySelector('#quizform').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -227,7 +237,9 @@ document.querySelector('#quizform').addEventListener('submit', function (event) 
     for (let i = 0; i < preguntas.length; i++) {
         let respuesta = event.target[preguntas[i].name].value;
         if (respuesta == "") {
-            alert(`Por favor, responde a la pregunta nº ${i + 1}`);
+            document.querySelector("#message").style.display = "block";
+            document.querySelector("#message").innerHTML = `Por favor, responde a la pregunta nº ${i + 1}`
+    
             return;
         }
     }
@@ -253,8 +265,11 @@ document.querySelector('#quizform').addEventListener('submit', function (event) 
         }
     }
     if (total < preguntas.length) {
-        alert(`Respondiste correctamente a ${total} preguntas de ${preguntas.length}`)
+        document.querySelector("#message").style.display = "block";
+        document.querySelector("#message").innerHTML = `¡Acertaste ${total} preguntas de ${preguntas.length}! ¡Sigue intentándolo!`
     } else {
-        alert(`¡Enhorabuena, lo lograste!`)
+        document.querySelector("#message").style.display = "block";
+        document.querySelector("#message").innerHTML = `¡Lo conseguiste! ¡Enhorabuena!`;
+        document.querySelector("#imagenFinal").src= "../assets/exito.gif";
     }
 })
