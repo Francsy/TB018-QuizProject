@@ -271,5 +271,6 @@ document.querySelector('#quizform').addEventListener('submit', function (event) 
         document.querySelector("#message").style.display = "block";
         document.querySelector("#message").innerHTML = `¡Lo conseguiste! ¡Enhorabuena!`;
         document.querySelector("#imagenFinal").src= "../assets/exito.gif";
+        document.querySelector("form>button").innerHTML = "¡GRACIAS POR JUGAR!";
     }
 })
