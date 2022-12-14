@@ -83,19 +83,19 @@ label {
     justify-content: center;
 }
 
-.optionA {
+.option1 {
     background: var(--optionA);
 }
 
-.optionB{
+.option2{
     background: var(--optionB);
 }
 
-.optionC {
+.option3 {
     background: var(--optionC);
 }
 
-.optionD {
+.option4 {
     background: var(--optionD);
 }
 

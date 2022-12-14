@@ -1,6 +1,6 @@
 //En primer lugar he creado una función que crea toda la estructura del quiz al pasarle un array de objetos (preguntas) y el id en el que quieres que se anide
-function createQuiz (arr, id) {
-    
+function createQuiz(arr, id) {
+
     form = document.createElement("form");
     form.setAttribute("id", "quizform")
     form.setAttribute("name", "quiz")
@@ -9,70 +9,35 @@ function createQuiz (arr, id) {
     for (let i = 0; i < preguntas.length; i++) {
 
         let fieldset = document.createElement("fieldset");
-        fieldset.setAttribute("id",preguntas[i].name);
-        fieldset.setAttribute("class","quizfieldset");
+        fieldset.setAttribute("id", preguntas[i].name);
+        fieldset.setAttribute("class", "quizfieldset");
         form.appendChild(fieldset);
 
         let legend = document.createElement("legend");
         legend.innerHTML = preguntas[i].question;
         fieldset.appendChild(legend);
 
-        let input1 = document.createElement("input");
-        input1.setAttribute("id", preguntas[i].optionA)
-        input1.setAttribute("type", "radio");
-        input1.setAttribute("name", preguntas[i].name)
-        input1.setAttribute("value", preguntas[i].optionAValue)
-        fieldset.appendChild(input1);
+        for (let j = 1; j < 5; j++) {
 
-        let label1 = document.createElement("label");
-        label1.setAttribute("class","optionA");
-        label1.setAttribute("for",preguntas[i].optionA);
-        label1.innerHTML = preguntas[i].optionAText;
-        fieldset.appendChild(label1);
+            let input = document.createElement("input");
+            input.setAttribute("id", preguntas[i][`option${j}`])
+            input.setAttribute("type", "radio");
+            input.setAttribute("name", preguntas[i]["name"])
+            input.setAttribute("value", preguntas[i][`option${j}Value`])
+            fieldset.appendChild(input);
 
-        let input2 = document.createElement("input");
-        input2.setAttribute("id", preguntas[i].optionB)
-        input2.setAttribute("type", "radio");
-        input2.setAttribute("name", preguntas[i].name)
-        input2.setAttribute("value", preguntas[i].optionBValue)
-        fieldset.appendChild(input2);
+            let label = document.createElement("label");
+            label.setAttribute("class", `option${j}`);
+            label.setAttribute("for", preguntas[i][`option${j}`]);
+            label.innerHTML = preguntas[i][`option${j}Text`];
+            fieldset.appendChild(label);
+        }
 
-        let label2 = document.createElement("label");
-        label2.setAttribute("class","optionB");
-        label2.setAttribute("for",preguntas[i].optionB);
-        label2.innerHTML = preguntas[i].optionBText;
-        fieldset.appendChild(label2);
-
-        let input3 = document.createElement("input");
-        input3.setAttribute("id", preguntas[i].optionC)
-        input3.setAttribute("type", "radio");
-        input3.setAttribute("name", preguntas[i].name)
-        input3.setAttribute("value", preguntas[i].optionCValue)
-        fieldset.appendChild(input3);
-
-        let label3 = document.createElement("label");
-        label3.setAttribute("class","optionC");
-        label3.setAttribute("for",preguntas[i].optionC);
-        label3.innerHTML = preguntas[i].optionCText;
-        fieldset.appendChild(label3);
-
-        let input4 = document.createElement("input");
-        input4.setAttribute("id", preguntas[i].optionD)
-        input4.setAttribute("type", "radio");
-        input4.setAttribute("name", preguntas[i].name)
-        input4.setAttribute("value", preguntas[i].optionDValue)
-        fieldset.appendChild(input4);
-
-        let label4 = document.createElement("label");
-        label4.setAttribute("class","optionD");
-        label4.setAttribute("for",preguntas[i].optionD);
-        label4.innerHTML = preguntas[i].optionDText;
-        fieldset.appendChild(label4);
     }
 
     let formButton = document.createElement("button");
-    formButton.setAttribute("type","submit");
-    formButton.setAttribute("value","comprobar");
+    formButton.setAttribute("type", "submit");
+    formButton.setAttribute("value", "comprobar");
     formButton.innerHTML = "Comprobar respuestas";
     form.appendChild(formButton);
 
@@ -83,168 +48,168 @@ const preguntas = [
     {
         name: "videogame",
         question: "¿Cuál fue primero?",
-        optionA: "pacman-field",
-        optionAText: "Pac-man",
-        optionAValue: "pacman",
-        optionB: "tetris-field",
-        optionBText: "Tetris",
-        optionBValue: "tetris",
-        optionC: "pong-field",
-        optionCText: "Pong",
-        optionCValue: "pong",
-        optionD: "supermario-field",
-        optionDText: "Super Mario",
-        optionDValue: "supermario",
+        option1: "pacman-field",
+        option1Text: "Pac-man",
+        option1Value: "pacman",
+        option2: "tetris-field",
+        option2Text: "Tetris",
+        option2Value: "tetris",
+        option3: "pong-field",
+        option3Text: "Pong",
+        option3Value: "pong",
+        option4: "supermario-field",
+        option4Text: "Super Mario",
+        option4Value: "supermario",
         right: "pong"
     },
     {
         name: "writer",
         question: "¿Quién escribió: «No todos los que vagan están perdidos»?",
-        optionA: "rowling-field",
-        optionAText: "J. K. Rowling",
-        optionAValue: "rowling",
-        optionB: "tolkien-field",
-        optionBText: "J. R. Tolkien",
-        optionBValue: "tolkien",
-        optionC: "hemingway-field",
-        optionCText: "E. Hemingway",
-        optionCValue: "hemingway",
-        optionD: "chacon-field",
-        optionDText: "D. Chacón",
-        optionDValue: "chacon",
+        option1: "rowling-field",
+        option1Text: "J. K. Rowling",
+        option1Value: "rowling",
+        option2: "tolkien-field",
+        option2Text: "J. R. Tolkien",
+        option2Value: "tolkien",
+        option3: "hemingway-field",
+        option3Text: "E. Hemingway",
+        option3Value: "hemingway",
+        option4: "chacon-field",
+        option4Text: "D. Chacón",
+        option4Value: "chacon",
         right: "tolkien"
-    },{
+    }, {
         name: "matrix",
         question: "¿De qué color es la pastilla que se toma Neo en la película Matrix?",
-        optionA: "green-field",
-        optionAText: "Verde",
-        optionAValue: "green",
-        optionB: "blue-field",
-        optionBText: "Azul",
-        optionBValue: "blue",
-        optionC: "red-field",
-        optionCText: "Roja",
-        optionCValue: "red",
-        optionD: "yellow-field",
-        optionDText: "Amarilla",
-        optionDValue: "yellow",
+        option1: "green-field",
+        option1Text: "Verde",
+        option1Value: "green",
+        option2: "blue-field",
+        option2Text: "Azul",
+        option2Value: "blue",
+        option3: "red-field",
+        option3Text: "Roja",
+        option3Value: "red",
+        option4: "yellow-field",
+        option4Text: "Amarilla",
+        option4Value: "yellow",
         right: "red"
-    },{
+    }, {
         name: "filmquote",
         question: "¿En qué película aparece la siguiente frase: «Muéstrame un corazón que esté libre de necios sueños, y te enseñaré a un hombre feliz»?",
-        optionA: "braveheart-field",
-        optionAText: "Braveheart",
-        optionAValue: "braveheart",
-        optionB: "brunner-field",
-        optionBText: "Blade Runner",
-        optionBValue: "brunner",
-        optionC: "mente-field",
-        optionCText: "Una Mente Maravillosa",
-        optionCValue: "mente",
-        optionD: "club-field",
-        optionDText: "El Club de los Poetas Muertos",
-        optionDValue: "club",
+        option1: "braveheart-field",
+        option1Text: "Braveheart",
+        option1Value: "braveheart",
+        option2: "brunner-field",
+        option2Text: "Blade Runner",
+        option2Value: "brunner",
+        option3: "mente-field",
+        option3Text: "Una Mente Maravillosa",
+        option3Value: "mente",
+        option4: "club-field",
+        option4Text: "El Club de los Poetas Muertos",
+        option4Value: "club",
         right: "club"
     },
     {
         name: "resident",
         question: "¿Cómo se llama la ciudad en la que se desarrolla Resident Evil?",
-        optionA: "raccoon-field",
-        optionAText: "Raccoon City",
-        optionAValue: "raccoon",
-        optionB: "resident-field",
-        optionBText: "Resident City",
-        optionBValue: "resident",
-        optionC: "newyork-field",
-        optionCText: "New York City",
-        optionCValue: "newyork",
-        optionD: "metropolis-field",
-        optionDText: "Metrópolis",
-        optionDValue: "metropolis",
+        option1: "raccoon-field",
+        option1Text: "Raccoon City",
+        option1Value: "raccoon",
+        option2: "resident-field",
+        option2Text: "Resident City",
+        option2Value: "resident",
+        option3: "newyork-field",
+        option3Text: "New York City",
+        option3Value: "newyork",
+        option4: "metropolis-field",
+        option4Text: "Metrópolis",
+        option4Value: "metropolis",
         right: "raccoon"
-    }, 
+    },
     {
         name: "camara",
         question: "¿Qué técnica para grabar, novedosa en aquellos tiempos, utilizó Kubrick en «El Resplandor»?",
-        optionA: "glidecam-field",
-        optionAText: "Glidecam",
-        optionAValue: "glidecam",
-        optionB: "bodycam-field",
-        optionBText: "Bodycam",
-        optionBValue: "bodycam",
-        optionC: "handyman-field",
-        optionCText: "Handyman",
-        optionCValue: "handyman",
-        optionD: "steadicam-field",
-        optionDText: "Steadicam",
-        optionDValue: "steadicam",
+        option1: "glidecam-field",
+        option1Text: "Glidecam",
+        option1Value: "glidecam",
+        option2: "bodycam-field",
+        option2Text: "Bodycam",
+        option2Value: "bodycam",
+        option3: "handyman-field",
+        option3Text: "Handyman",
+        option3Value: "handyman",
+        option4: "steadicam-field",
+        option4Text: "Steadicam",
+        option4Value: "steadicam",
         right: "steadicam"
     },
     {
         name: "montecristo",
         question: "¿Quién escribió «El Conde de Montecristo»?",
-        optionA: "herbert-field",
-        optionAText: "F. Herbert",
-        optionAValue: "herbert",
-        optionB: "dumas-field",
-        optionBText: "A. Dumas",
-        optionBValue: "dumas",
-        optionC: "reverte-field",
-        optionCText: "A. P. Reverte",
-        optionCValue: "reverte",
-        optionD: "martin-field",
-        optionDText: "G. R. R. Martin",
-        optionDValue: "martin",
+        option1: "herbert-field",
+        option1Text: "F. Herbert",
+        option1Value: "herbert",
+        option2: "dumas-field",
+        option2Text: "A. Dumas",
+        option2Value: "dumas",
+        option3: "reverte-field",
+        option3Text: "A. P. Reverte",
+        option3Value: "reverte",
+        option4: "martin-field",
+        option4Text: "G. R. R. Martin",
+        option4Value: "martin",
         right: "dumas"
     },
     {
         name: "zelda",
         question: "¿Cuál es el material de la primera espada que recibes en The Legend of Zelda?",
-        optionA: "acero-field",
-        optionAText: "Acero",
-        optionAValue: "acero",
-        optionB: "hueso-field",
-        optionBText: "Hueso",
-        optionBValue: "hueso",
-        optionC: "hierro-field",
-        optionCText: "Hierro",
-        optionCValue: "hierro",
-        optionD: "madera-field",
-        optionDText: "Madera",
-        optionDValue: "madera",
+        option1: "acero-field",
+        option1Text: "Acero",
+        option1Value: "acero",
+        option2: "hueso-field",
+        option2Text: "Hueso",
+        option2Value: "hueso",
+        option3: "hierro-field",
+        option3Text: "Hierro",
+        option3Value: "hierro",
+        option4: "madera-field",
+        option4Text: "Madera",
+        option4Value: "madera",
         right: "madera"
     },
     {
         name: "sitcom",
         question: "Serie de humor ambientada en una empresa regional de venta de papel en Scranton (Pensilvania)",
-        optionA: "bigbang-field",
-        optionAText: "The Big Bang Theory",
-        optionAValue: "bigbang",
-        optionB: "seinfeld-field",
-        optionBText: "Seinfeld",
-        optionBValue: "seinfeld",
-        optionC: "office-field",
-        optionCText: "The Office",
-        optionCValue: "office",
-        optionD: "friends-field",
-        optionDText: "Friends",
-        optionDValue: "friends",
+        option1: "bigbang-field",
+        option1Text: "The Big Bang Theory",
+        option1Value: "bigbang",
+        option2: "seinfeld-field",
+        option2Text: "Seinfeld",
+        option2Value: "seinfeld",
+        option3: "office-field",
+        option3Text: "The Office",
+        option3Value: "office",
+        option4: "friends-field",
+        option4Text: "Friends",
+        option4Value: "friends",
         right: "office"
-    },{
+    }, {
         name: "n64",
         question: "¿Cuántas entradas para mandos tiene la Nintendo 64?",
-        optionA: "1-field",
-        optionAText: "1",
-        optionAValue: "1",
-        optionB: "2-field",
-        optionBText: "2",
-        optionBValue: "2",
-        optionC: "4-field",
-        optionCText: "4",
-        optionCValue: "4",
-        optionD: "6-field",
-        optionDText: "6",
-        optionDValue: "6",
+        option1: "1-field",
+        option1Text: "1",
+        option1Value: "1",
+        option2: "2-field",
+        option2Text: "2",
+        option2Value: "2",
+        option3: "4-field",
+        option3Text: "4",
+        option3Value: "4",
+        option4: "6-field",
+        option4Text: "6",
+        option4Value: "6",
         right: "4"
     }
 ]
@@ -258,7 +223,7 @@ createQuiz(preguntas, "quizmain");
 
 document.querySelector('#quizform').addEventListener('submit', function (event) {
     event.preventDefault();
-    
+
     for (let i = 0; i < preguntas.length; i++) {
         let respuesta = event.target[preguntas[i].name].value;
         if (respuesta == "") {
@@ -270,7 +235,7 @@ document.querySelector('#quizform').addEventListener('submit', function (event) 
     for (let i = 0; i < preguntas.length; i++) {
         let respuesta = event.target[preguntas[i].name].value;
         if (respuesta != preguntas[i].right) {
-    
+
             document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.backgroundColor = "red";
             document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.border = "10px solid black";
         } else {
@@ -288,8 +253,8 @@ document.querySelector('#quizform').addEventListener('submit', function (event) 
         }
     }
     if (total < preguntas.length) {
-    alert(`Respondiste correctamente a ${total} preguntas de ${preguntas.length}`)
+        alert(`Respondiste correctamente a ${total} preguntas de ${preguntas.length}`)
     } else {
-    alert(`¡Enhorabuena, lo lograste!`)
+        alert(`¡Enhorabuena, lo lograste!`)
     }
 })
