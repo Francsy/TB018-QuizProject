@@ -99,7 +99,7 @@ label {
     background: var(--optionD);
 }
 
-.quizfieldset label:hover {
+.quizfieldset>label:hover {
     background: black;
 }
 
