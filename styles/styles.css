@@ -11,22 +11,35 @@
 }
 
 * {
-    font-family: fantasy;
+    font-family: fantasy, Arial, Helvetica, sans-serif
 }
 
 #index {
     background-color: var(--backgroundIndex);
     text-align: center;
-    margin-top: 100px;
+    margin: 0px;
+    
 }
 
-#indexAnchor {
+#indexsection {
+    display: flex;
+    flex-direction: column;
+    margin: 100px 0px 100px 0px;
+    text-align: center;
+    align-items: center;
+}
+
+#imgpregunta {
+    width: 100%;
+}
+
+#indexanchor {
     margin: 50px 30px;
     background-color: var(--anchorIndex);
     border: 4px solid var(--indexShadow);
     color: black;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 50px;
+    font-size: 35px;
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
@@ -35,9 +48,11 @@
 
 #quizbody {
     background: var(--backgroundQuiz);
+    width: 100%;
 }
-form {
+#quizform {
     text-align: center;
+    width: 100%;
 }
 
 .quizfieldset {
@@ -54,13 +69,14 @@ form {
 legend {
     color: var(--titles);
     height: 20vh;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: fantasy;
-    padding: 0px 25px;
+    padding: 0px 0px;
     text-align: center;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    padding: 2%;
 }
 
 input[type=radio] {
@@ -68,10 +84,10 @@ input[type=radio] {
 }
 
 label {
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin: 0px;
-    padding: 30px;
-    height: 20vh;
+    padding: 30px 0px;
+    height: 20%;
     width: 100%;
     color: var(--backgroundQuiz);
     min-width: 100px;
@@ -136,18 +152,44 @@ input {
     display: none;
     font-size: 1.4em;
     padding: 20px;
-    margin: 40px 20px 20px 20px;
+    margin: 40px 0px 20px 0px;
     font-weight: bold;
+}
+
+#divimagenfinal {
+    text-align: center;
+    width: 100%;
+}
+
+#imagenFinal {
+    width: 100%;
 }
 
 
 @media screen and (min-width: 768px) and (max-width: 1366px) {
 
+
+    #indexanchor {
+        font-size: 50px;
+    }
+
+    #imgpregunta {
+    width: 300px;
+    }
+
+    #quizmain {
+        margin: 0px;
+        padding: 0px;
+        padding: 0px;
+    } 
+
     #quizform {
-        margin: auto 30px;
+        margin: 0px;
     }
 
     .quizfieldset {
+        margin: 0px;
+        padding: 0px;
         flex-direction: row;
         align-items: center;
         height: auto;
@@ -178,14 +220,35 @@ input {
     #message {
         font-size: 1.8em;
     }
+
+    #imagenFinal {
+        width: auto;
+    }
     
 }
 
 @media screen and (min-width: 1366px) {
 
-    #quizform {
-        margin: auto 15%;
+
+     #indexanchor {
+        font-size: 50px;
     }
+  
+
+    #imgpregunta {
+    width: 500px;
+    }
+
+    #quizmain {
+        margin: 0px;
+        padding: 0px;
+        padding: 0px;
+    } 
+
+    #quizform {
+        margin: 0px;
+    }
+
     .quizfieldset {
         flex-direction: row;
         align-items: center;
@@ -193,7 +256,6 @@ input {
         flex-wrap: wrap;
         justify-content: center;
         align-content: center;
-        
     }
     
     legend {
@@ -219,5 +281,8 @@ input {
     #message {
         font-size: 2.4em;
     }
-    
+
+    #imagenFinal {
+        width: auto;
+    }
 }
