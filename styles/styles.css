@@ -66,13 +66,15 @@
     border-color: transparent;
 }
 
+
+
 legend {
     color: var(--titles);
-    height: 20vh;
+    height: 20%;
     font-size: 1.3em;
     font-family:'Courier New', Courier, monospace;
     font-weight: bold;
-    padding: 0px 0px;
+    padding: 20px 0px;
     text-align: center;
     display: inline-flex;
     align-items: center;
