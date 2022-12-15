@@ -36,6 +36,7 @@ function createQuiz(arr, id) {
     }
 
     let divMensajeFinal = document.createElement("div");
+    divMensajeFinal.setAttribute("id","divmensajefinal")
     form.appendChild(divMensajeFinal);
     let mensajeFinal = document.createElement("p");
     mensajeFinal.id = "message";
@@ -249,10 +250,10 @@ document.querySelector('#quizform').addEventListener('submit', function (event) 
         if (respuesta != preguntas[i].right) {
 
             document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.backgroundColor = "red";
-            document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.border = "10px solid black";
+            document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.border = "5px solid black";
         } else {
             document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.backgroundColor = "green";
-            document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.border = "10px solid black";
+            document.querySelector(`#${preguntas[i].name}>input[type=radio]:checked + label`).style.border = "5px solid black";
         }
     }
 
